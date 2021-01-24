@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <section id="todoapp">
+        <header class="header">
+            <h1>小黑记事本</h1>
+            <input autofocus='autofocus' autocmplete='off'
+             placeholder='请书如任务' class="new-todo">
+        </header>
+
+        <section class="main">
+        </section>
+
+        <footer class="footer">
+        </footer>
+
+    </section>
+
+        <footer class="info">
+        </footer>
+</body>
+<script>
+    class Test {
+        constructor(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        data() {
+            setTimeout(() => {
+                console.log(this.name + this.age)
+            }, 500);
+        }
+    }
+    new Test(1,1).data()
+</script>
+</html>

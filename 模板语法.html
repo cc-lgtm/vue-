@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span id="app" v-once>Message: {{ msg }}</span>
+
+    <p id="app-2">
+        <span v-html='rawHtml'></span>
+        <button v-bind:disabled='isButtonDissbled'>点击</button>
+    </p>
+</body>
+<script src="./vue.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            msg: 'holle vue!'
+        }
+    })
+
+    var app2 = new Vue({
+        el: '#app-2',
+        data: {
+            rawHtml: '<span style="color: red">This should be red.</span>',
+            isButtonDissbled: 3 > 2 ? 'yes' : 'no'
+        },
+    })
+</script>
+</html>

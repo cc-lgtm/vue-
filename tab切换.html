@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box > div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div v-show='tab==1'>首页</div>
+        <div v-show='tab==2'>新闻页</div>
+        <div v-show='tab==3'>个人中心</div>
+
+        <button @click='chengeTab' data-id="1">首页</button>
+        <button @click='chengeTab' data-id="2">新闻</button>
+        <button @click='chengeTab' data-id="3">个人</button>
+    </div>
+
+</body>
+<script src="./vue.js"></script>
+<script>
+    const app = new Vue({
+        el: "#box",
+        data: {
+            tab: 1
+        },
+        methods: {
+            chengeTab: function(e) {
+                // console.log(e);
+                let tabId = e.target.dataset.id;
+                this.tab = tabId;
+            }
+        }
+    })
+</script>
+</html>
