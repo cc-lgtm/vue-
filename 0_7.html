@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .aClass{
+            color: red;
+        }
+        .bClass{
+            color: green;
+        }
+        .cClass{
+            font-size: 20px;
+        }
+    </style>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="demo">
+        <h2 class="cClass" :class="{aClass: isA, bClass: isB}">class绑定</h2>
+
+        <h2>style绑定</h2>
+        <button @click='update'>更新</button>
+    </div>
+</body>
+<script>
+
+    const vm = new Vue({
+        el: '#demo',
+        data: {
+            a: 'aClass',
+            isA: true,
+            isB: false
+        },
+        methods: {
+            update() {
+                // this.a = 'bClass'
+                this.isA = !this.isA;
+                this.isB = !this.isB
+            }
+        }
+
+    })
+
+</script>
+</html>

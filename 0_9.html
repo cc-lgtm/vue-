@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(item, index) in persons" :key='index'>
+                {{index}}
+                {{item.name}}
+                {{item.age}}
+                <button @click='deletep(index)'>删除</button>
+                <button @click='updatep(index, {name: "cat", age: 20})'>更新</button>
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        el: '#app',
+        data: {
+            persons: [
+                {name: 'aa', age: 16},
+                {name: 'aa', age: 13},
+                {name: 'aa', age: 16},
+                {name: 'aa', age: 12},
+            ]
+        },
+        methods: {
+            deletep(index) {
+                this.persons.splice(index, 1)
+            },
+            updatep(index, newp) {
+                this.persons.splice(index, 1, newp)
+            }
+        }
+    })
+</script>
+</html>

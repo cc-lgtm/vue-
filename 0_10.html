@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="test">
+        <input type="text" v-model='srechName'>
+        <ul>
+            <li v-for='(p, index) in fittlePersons' :key='index'>
+                {{index}}
+                {{p.name}}
+                {{p.age}}
+            </li>
+        </ul>
+        <button @click='setOrderType(1)'>升序</button>
+        <button @click='setOrderType(2)'>降序</button>
+        <button @click='setOrderType(0)'>重置</button>
+
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        el: '#test',
+        data: {
+            srechName: '',
+            orderType: 0,
+            persons: [
+                {name: 'db', age: 14},
+                {name: 'ba', age: 13},
+                {name: 'cb', age: 16},
+                {name: 'ac', age: 12},
+            ]
+        },
+        computed: {
+            fittlePersons() {
+                const { srechName, persons, orderType} = this;
+                let fPresons;
+                fPresons = persons.filter(p => p.name.indexOf(srechName) !== -1);
+                if(orderType !== 0) {
+                    fPresons.sort(function (p1, p2) {
+                        if(odrderType === 2) {
+                            return p2.age - p1.age
+                        } else {
+                            return p1.age - p2.age
+                        }
+                    })
+                }
+                return fPresons;
+            }
+        },
+        methods: {
+            setOrderType(odrderType) {
+                this.odrderType = odrderType;
+            }
+        }
+    })
+
+</script>
+</html>
