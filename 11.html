@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="demo">
+        <button @click='test1'>test1</button>
+        <button @click='test2(meg)'>test2</button>
+
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        el: '#demo',
+        data: {
+            meg: '111',
+            test1() {
+                alert('test')
+            },
+            test2(meg) {
+                alert(meg)
+            }
+        },
+    })
+</script>
+</html>

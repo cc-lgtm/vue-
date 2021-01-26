@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="test">
+        <button @click='func'>click herer</button>
+        <p v-show='isShow'>hello, wolrd</p>
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        el: '#test',
+        data: {
+            isShow: true
+        },
+        mounted() {
+                this.temer = setInterval(function () {
+                this.isShow = !this.isShow
+                console.log('-----')
+            }.bind(this), 1000)
+        },
+        beforeDestroy() {
+            clearInterval(this.temer)
+        },
+        methods: {
+            func() {
+                this.$destroy()
+            }
+        }
+    })
+</script>
+</html>

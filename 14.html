@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="test">
+        <button @click='isShow=!isShow'>toggle</button>
+        <p v-show='isShow'>hello, world</p>
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        el: '#test',
+        data() {
+            return {
+                isShow: true
+            }
+        }
+    })
+</script>
+</html>
